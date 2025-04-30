@@ -1,0 +1,10 @@
+# /etc/systemd/system/rainforecast.service
+[Unit]
+Description=Run Rain Forecast Parser
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/Py_IMGW
+ExecStart=/opt/Py_IMGW/venv/bin/python /opt/Py_IMGW/main.py
