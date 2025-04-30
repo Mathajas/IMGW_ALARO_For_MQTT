@@ -28,9 +28,11 @@ Python script for downloading, parsing, and aggregating short-term precipitation
     ...
   ]
 }
+```
 
-Usage
+## Usage
 
+```bash
 # Create virtual environment
 python3 -m venv venv
 source venv/bin/activate
@@ -40,35 +42,30 @@ pip install -r requirements.txt
 
 # Run the script
 python3 main.py
+```
 
-Configuration
+## Configuration
 
-Edit variables at the top of main.py:
+Edit variables at the top of `main.py`:
 
-    LAT, LON — your forecast location
+- `LAT`, `LON` — your forecast location
+- `TEST_MODE` — set `False` to enable real downloads
+- `VERBOSE` — enable detailed logging to console
 
-    TEST_MODE — set False to enable real downloads
+## Integration Tips
 
-    VERBOSE — enable detailed logging to console
+Use the generated `forecast_result.json` in:
+- Home Assistant (e.g. `rest` sensor)
+- MQTT publishing
+- Irrigation delay logic based on upcoming rainfall
 
-Integration Tips
+## Notes
 
-Use the generated forecast_result.json in:
+- Uses `cfgrib` + `xarray` to read GRIB files
+- Supports fallback logic if one variable is missing
+- Filters out broken HTML "downloads" by checking file size and content-type
 
-    Home Assistant (e.g. rest sensor)
-
-    MQTT publishing
-
-    Irrigation delay logic based on upcoming rainfall
-
-Notes
-
-    Uses cfgrib + xarray to read GRIB files
-
-    Supports fallback logic if one variable is missing
-
-    Filters out broken HTML "downloads" by checking file size and content-type
-
-License
+## License
 
 MIT License
+
