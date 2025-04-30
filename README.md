@@ -29,7 +29,8 @@ Python script for downloading, parsing, and aggregating short-term precipitation
   ]
 }
 
-#Usage
+Usage
+
 # Create virtual environment
 python3 -m venv venv
 source venv/bin/activate
